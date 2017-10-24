@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container" style='background:{{calendar.taboo?"#000":"#f00"}};'>
+  <view class="bg">
+  </view>
+</view>
