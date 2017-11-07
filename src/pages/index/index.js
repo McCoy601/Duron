@@ -3,7 +3,8 @@
 Page({
   data: {
     calendar:{
-      taboo:true//宜忌
-    }
+      taboo:false//宜忌
+    },
+    motto:'如果努力有用，还要天赋干嘛！'
   }
 })

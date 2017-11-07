@@ -21,7 +21,7 @@
       </view>
     </view>
     <view style='border-top:1px solid #000; padding:40rpx;'>
-      
+      {{motto}}
     </view>
   </view>
 </view>
