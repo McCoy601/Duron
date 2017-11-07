@@ -1,0 +1,7 @@
+.dui-flex{
+  display: flex;
+}
+
+.dui-flex-item{
+  flex: 1;
+}
