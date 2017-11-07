@@ -1,5 +1,23 @@
 .bg{
   width: 100%;
   height: 100%;
-  background:linear-gradient(45deg,#fff 4.8%,transparent 0,transparent 5%,#fff 0,#fff 95%,#fff 0,transparent 95.2%);
+}
+
+.bg:before{
+  content: '\e606';
+  font-family: 'iconfont' !important;
+  font-size: 80rpx;
+  position: absolute;
+  right: 0;
+  top:0;
+}
+
+.bg:after{
+  content: '\e60f';
+  font-family: 'iconfont' !important;
+  font-size: 80rpx;
+  transform: rotate(90deg);
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
