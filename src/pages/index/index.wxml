@@ -1,5 +1,27 @@
 <!--index.wxml-->
-<view class="container" style='background:{{calendar.taboo?"#000":"#f00"}};'>
-  <view class="bg">
+<view class="container">
+  <view class='bg {{calendar.taboo?"wx-text-color-black":"wx-text-color-red"}}'>
+    <view class='dui-flex' style='padding-top:40rpx;padding-bottom:20px;height:55%;'>
+      <view class='dui-flex-item' style='flex:0.5;writing-mode:vertical-rl'>丙申猴年 辛丑月 庚子日</view>
+      <view class='dui-flex-item' style='border-top:1px solid #000;border-right:1px solid #000;writing-mode:vertical-rl'>
+        腊月十六 周五
+      </view>
+      <view class='dui-flex-item' style='border-top:1px solid #000;'></view>
+      <view class='dui-flex-item' style='flex:4'>
+        <view class='dui-flex' style='flex-flow:column;text-align:center;'>
+          <view class='dui-flex-item wx-text-color-gray'>2017</view>
+          <view class='dui-flex-item wx-text-color-gray'>-1月-</view>
+          <view class='dui-flex-item' style='font-size:240rpx;font-weight:600;'>13</view>
+          <view class='dui-flex-item' style='font-size:18pt;'>
+            <view class='iconfont {{calendar.taboo?"icon-ji":"icon-yi"}}'>混吃等死</view>
+          </view>
+        </view>
+      </view>
+      <view class='dui-flex-item'>
+      </view>
+    </view>
+    <view style='border-top:1px solid #000; padding:40rpx;'>
+      
+    </view>
   </view>
 </view>
