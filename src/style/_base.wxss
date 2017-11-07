@@ -1,0 +1,27 @@
+.container {
+  height: 100%;
+}
+
+.wx-text-l {
+  font-size: 40pt;
+}
+
+.wx-text-m {
+  font-size: 20pt;
+}
+
+.wx-text-color-green {
+  color: #09bb07;
+}
+.wx-text-color-black {
+  color: #353535;
+}
+.wx-text-color-gray {
+  color: #888;
+}
+.wx-text-color-blue {
+  color: #576b95;
+}
+.wx-text-color-red {
+  color: #e64340;
+}
