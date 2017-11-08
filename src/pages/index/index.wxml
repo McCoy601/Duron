@@ -1,26 +1,33 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='bg {{calendar.taboo?"wx-text-color-black":"wx-text-color-red"}}'>
-    <view class='dui-flex' style='padding-top:40rpx;padding-bottom:20px;height:55%;'>
-      <view class='dui-flex-item' style='flex:0.5;writing-mode:vertical-rl'>丙申猴年 辛丑月 庚子日</view>
-      <view class='dui-flex-item' style='border-top:1px solid #000;border-right:1px solid #000;writing-mode:vertical-rl'>
-        腊月十六 周五
+  <view class='bg {{calendar.taboo?"wx-text-color-blue":"wx-text-color-red"}}'>
+    <view class='dui-flex main'>
+      <view class='dui-flex-item lunar' style='flex:0.5; padding-right:0;'>
+        丙申猴年 辛丑月 庚子日
       </view>
-      <view class='dui-flex-item' style='border-top:1px solid #000;'></view>
+      <view class='dui-flex-item lunar border-top-px1 border-right-px1'>
+        腊月十六 星期五
+      </view>
+      <view class='dui-flex-item border-top-px1'></view>
       <view class='dui-flex-item' style='flex:4'>
-        <view class='dui-flex' style='flex-flow:column;text-align:center;'>
+        <view class='dui-flex section' style='flex-flow:column;'>
           <view class='dui-flex-item wx-text-color-gray'>2017</view>
           <view class='dui-flex-item wx-text-color-gray'>-1月-</view>
-          <view class='dui-flex-item' style='font-size:240rpx;font-weight:600;'>13</view>
-          <view class='dui-flex-item' style='font-size:18pt;'>
-            <view class='iconfont {{calendar.taboo?"icon-ji":"icon-yi"}}'>混吃等死</view>
+          <view class='dui-flex-item day'>13</view>
+          <view class='dui-flex-item'>
+            <view class='dui-flex' style='justify-content:center;'>
+              <view class='dui-flex-item-auto'></view>
+              <view class='iconfont {{calendar.taboo?"icon-ji":"icon-yi"}} wx-text-n' style='transform: rotate(-30deg);'></view>
+              <view class='wx-text-color-black' style='padding-left:10rpx;'>混吃等死</view>
+              <view class='dui-flex-item-auto'></view>
+            </view>
           </view>
         </view>
       </view>
       <view class='dui-flex-item'>
       </view>
     </view>
-    <view style='border-top:1px solid #000; padding:40rpx;'>
+    <view class='border-top-px1 pd-40'>
       {{motto}}
     </view>
   </view>
