@@ -5,3 +5,7 @@
 .dui-flex-item{
   flex: 1;
 }
+
+.dui-flex-item-auto{
+  flex: auto;
+}
