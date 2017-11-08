@@ -10,6 +10,10 @@
   font-size: 20pt;
 }
 
+.wx-text-n{
+  font-size: 18pt;
+}
+
 .wx-text-color-green {
   color: #09bb07;
 }
@@ -24,4 +28,20 @@
 }
 .wx-text-color-red {
   color: #e64340;
+}
+
+.pd-5{
+  padding: 5rpx;
+}
+
+.pd-10{
+  padding: 10rpx;
+}
+
+.pd-20{
+  padding: 20rpx;
+}
+
+.pd-40{
+  padding: 40rpx;
 }
