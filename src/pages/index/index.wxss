@@ -62,3 +62,39 @@
   font-weight: 600;
 }
 
+.previous, .next {
+  color: #fefefe;
+  font-size: 60rpx;
+  position: fixed;
+  top: 40%;
+  width: 50rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.previous {
+  left: 0;
+  border-radius: 0 50rpx 50rpx 0;
+  text-align: left;
+}
+
+.next {
+  right: 0;
+  border-radius: 50rpx 0 0 50rpx;
+  text-align: right;
+}
+
+.icon-previous, .icon-next {
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+}
+
+.icon-previous::before {
+  content: '\27E8';
+}
+
+.icon-next::before {
+  content: '\27E9';
+}

@@ -40,3 +40,10 @@
     </swiper-item>
   </block>
 </swiper>
+<view class='previous'>
+  <view class='icon-previous'></view>
+</view>
+
+<view class='next'>
+  <view class='icon-next'></view>
+</view>
