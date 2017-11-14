@@ -1,6 +1,14 @@
-.bg {
-  width: 100%;
+.wrp {
   height: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  position: relative;
+}
+
+.bg {
+  height: 100%;
+  position: relative;
+  background: #fff;
 }
 
 .bg:before {
@@ -31,8 +39,11 @@
 }
 
 .lunar {
-  padding: 20rpx;
+  display: block;
   color: #353535;
+  width: 1rem;
+  max-width: 1rem;
+  margin: .5em 0.1em 0 auto;
   writing-mode: vertical-rl;
 }
 
@@ -41,12 +52,13 @@
   padding-top: 40rpx;
 }
 
-.main{
-  padding:40rpx 0 20rpx 0;
-  height:55%;
+.main {
+  padding: 40rpx 0 20rpx 0;
+  height: 60%;
 }
 
-.day{
-  font-size:240rpx;
-  font-weight:600;
+.day {
+  font-size: 240rpx;
+  font-weight: 600;
 }
+
