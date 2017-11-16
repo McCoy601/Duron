@@ -1,0 +1,45 @@
+<!--
+  era: string//纪年(天干地支)
+  lunar: string//农历
+  week: '星期五',
+  year:
+  mouth:
+  day:
+  act: 宜忌,
+  taboo: false,//是否忌
+  motto: string//语录
+-->
+<template name="dCalerdar">
+  <view class='bg {{taboo?"wx-text-color-blue":"wx-text-color-red"}}'>
+    <view class='dui-flex main'>
+      <view class='dui-flex-item'>
+        <text class='lunar' space='ensp'>{{era}}</text>
+      </view>
+      <view class='dui-flex-item border-top-px1 border-right-px1'>
+        <text class='lunar' space='ensp'>{{lunar}}</text>
+        <text class='lunar' space='ensp'>{{week}}</text>
+      </view>
+      <view class='dui-flex-item border-top-px1'></view>
+      <view class='dui-flex-item' style='flex:4'>
+        <view class='dui-flex section' style='flex-flow:column;'>
+          <view class='dui-flex-item wx-text-color-gray'>{{year}}</view>
+          <view class='dui-flex-item wx-text-color-gray'>-{{mouth}}月-</view>
+          <view class='dui-flex-item day'>{{day}}</view>
+          <view class='dui-flex-item'>
+            <view class='dui-flex' style='justify-content:center;'>
+              <view class='dui-flex-item-auto'></view>
+              <view class='iconfont {{taboo?"icon-ji":"icon-yi"}} wx-text-n' style='transform: rotate(-30deg);'></view>
+              <view class='wx-text-color-black' style='padding-left:10rpx;'>{{act}}</view>
+              <view class='dui-flex-item-auto'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='dui-flex-item'>
+      </view>
+    </view>
+    <view class='border-top-px1 pd-40'>
+      {{motto}}
+    </view>
+  </view>
+</template>
