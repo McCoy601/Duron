@@ -1,65 +1,10 @@
+@import '../../template/calendar.wxss';
+
 .wrp {
   height: 100%;
   box-sizing: border-box;
   padding: 20rpx;
   position: relative;
-}
-
-.bg {
-  height: 100%;
-  position: relative;
-  background: #fff;
-}
-
-.bg:before {
-  content: '\e606';
-  font-family: 'iconfont' !important;
-  font-size: 80rpx;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.bg:after {
-  content: '\e60f';
-  font-family: 'iconfont' !important;
-  font-size: 80rpx;
-  transform: rotate(90deg);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-.border-top-px1 {
-  border-top: 1px solid #353535;
-}
-
-.border-right-px1 {
-  border-right: 1px solid #353535;
-}
-
-.lunar {
-  display: block;
-  color: #353535;
-  width: 1rem;
-  max-width: 1rem;
-  margin: .5em 0.1em 0 auto;
-  writing-mode: vertical-rl;
-}
-
-.section {
-  text-align: center;
-  padding-top: 40rpx;
-}
-
-.main {
-  padding: 40rpx 0 20rpx 0;
-  height: 60%;
-}
-
-.day {
-  font-size: 240rpx;
-  font-weight: 600;
 }
 
 .previous, .next {

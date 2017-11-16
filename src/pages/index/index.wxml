@@ -1,42 +1,12 @@
 <!--index.wxml-->
+<import src="../../template/calendar.wxml" />
+
 <swiper style='height:100%;'>
   <block wx:for="{{[1,2,3]}}">
     <swiper-item style="width:100%;">
       <view class="wrp">
-        <view class='bg {{calendar.taboo?"wx-text-color-blue":"wx-text-color-red"}}'>
-          <view class='dui-flex main'>
-            <view class='dui-flex-item'>
-              <text class='lunar' space='ensp'>{{era}}</text>
-            </view>
-            <view class='dui-flex-item border-top-px1 border-right-px1'>
-              <text class='lunar' space='ensp'>{{lunar}}</text>
-              <text class='lunar' space='ensp'>{{week}}</text>
-            </view>
-            <view class='dui-flex-item border-top-px1'></view>
-            <view class='dui-flex-item' style='flex:4'>
-              <view class='dui-flex section' style='flex-flow:column;'>
-                <view class='dui-flex-item wx-text-color-gray'>2017</view>
-                <view class='dui-flex-item wx-text-color-gray'>-1月-</view>
-                <view class='dui-flex-item day'>13</view>
-                <view class='dui-flex-item'>
-                  <view class='dui-flex' style='justify-content:center;'>
-                    <view class='dui-flex-item-auto'></view>
-                    <view class='iconfont {{calendar.taboo?"icon-ji":"icon-yi"}} wx-text-n' style='transform: rotate(-30deg);'></view>
-                    <view class='wx-text-color-black' style='padding-left:10rpx;'>混吃等死</view>
-                    <view class='dui-flex-item-auto'></view>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class='dui-flex-item'>
-            </view>
-          </view>
-          <view class='border-top-px1 pd-40'>
-            {{motto}}
-          </view>
-        </view>
+        <template is="dCalerdar" data="{{...obj1}}"></template>
       </view>
-
     </swiper-item>
   </block>
 </swiper>
