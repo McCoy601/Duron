@@ -8,7 +8,7 @@ Page({
   index: -1,
   testList: [],
   onLoad: function (option) {
-    const _this=this;
+    const _this = this;
     for (let i = 0; i < 20; i++) {
       let tempDate = new Date(new Date().setDate(i - 19));
       _this.testList.push({
@@ -36,7 +36,7 @@ Page({
     // });
   },
   next: function () {
-    const _this=this;
+    const _this = this;
 
     if (_this.index >= -1) {
       wx.showToast({
@@ -44,16 +44,27 @@ Page({
       });
       return;
     }
+
+    _this.setData({
+      current: 2
+    });
+
     _this.index += 1;
     _this._renderSwiper(_this.index - 1, _this.index + 2);
   },
   previous: function () {
-    const _this=this;
+    const _this = this;
+    _this.setData({
+      current:0
+    });
     _this.index -= 1;
     _this._renderSwiper(_this.index - 1, _this.index + 2);
   },
   onSwiperChange: function (e) {
-    const _this=this;
+    if (e.detail.source!='touch'){
+      return;
+    }
+    const _this = this;
     if (e.detail.current == 0) {
       _this.previous();
     } else if (e.detail.current == 2) {
@@ -62,7 +73,7 @@ Page({
   },
   _renderSwiper: function (begin, end) {
     let items = null;
-    const _this=this;
+    const _this = this;
     if (end >= -1) {
       items = _this.testList.slice(begin);
     } else if (begin < -_this.testList.length) {
@@ -72,12 +83,12 @@ Page({
     }
 
     if (items) {
-      setTimeout(function(){
+      setTimeout(function () {
         _this.setData({
           calendar: items,
           current: 1
         });
-      },500);
+      }, 500);
     }
   }
 })
