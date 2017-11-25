@@ -10,10 +10,10 @@
     </swiper-item>
   </block>
 </swiper>
-<view class='previous' catch:tap='previous'>
+<view class='previous' hidden='{{!canPrevious}}' catch:tap='previous'>
   <view class='icon-previous'></view>
 </view>
 
-<view class='next' catch:tap='next'>
+<view class='next' hidden='{{!canNext}}' catch:tap='next'>
   <view class='icon-next'></view>
 </view>

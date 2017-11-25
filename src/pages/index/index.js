@@ -3,15 +3,18 @@
 
 Page({
   data: {
-    current: 1
+    current: 1,
+    canNext: false,
+    canPrevious: true
   },
   index: -1,
-  testList: [],
+  cacheItems: [],
+  itemCount: 0,
   onLoad: function (option) {
     const _this = this;
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
       let tempDate = new Date(new Date().setDate(i - 19));
-      _this.testList.push({
+      _this.cacheItems.push({
         id: tempDate.toLocaleDateString(),
         era: '丙申猴年 辛丑月 庚子日',
         lunar: '腊月十六',
@@ -24,9 +27,10 @@ Page({
         motto: tempDate.toLocaleDateString()
       })
     }
+    _this.itemCount = _this.cacheItems.length;
 
     _this.setData({
-      calendar: _this.testList.slice(_this.index - 1)
+      calendar: _this.cacheItems.slice(_this.index - 1)
     })
   },
   onReady: function () {
@@ -35,33 +39,44 @@ Page({
     //   currentIndex:1
     // });
   },
-  next: function () {
+  next: function () {//下一天
     const _this = this;
 
     if (_this.index >= -1) {
       wx.showToast({
         title: '未来,已来'
       });
+
       return;
     }
 
-    _this.setData({
-      current: 2
-    });
+    let _data = {
+      current: _this.index == -_this.itemCount ? 1 : 2,
+      canPrevious: _this.index >= -_this.itemCount,
+      canNext: _this.index < -2
+    }
+
+    _this.setData(_data);
 
     _this.index += 1;
-    _this._renderSwiper(_this.index - 1, _this.index + 2);
+    _this._renderSwiper();
   },
-  previous: function () {
+  previous: function () {//前一天
     const _this = this;
-    _this.setData({
-      current:0
-    });
+    let _data = {
+      current: 0,
+      canPrevious: _this.index > -_this.itemCount,
+      canNext: _this.index <= -1
+    };
+    _this.setData(_data);//swiper前滑
+    if (_this.index <= -_this.itemCount) {
+      return;
+    }
     _this.index -= 1;
-    _this._renderSwiper(_this.index - 1, _this.index + 2);
+    _this._renderSwiper();
   },
-  onSwiperChange: function (e) {
-    if (e.detail.source!='touch'){
+  onSwiperChange: function (e) {//swiper change事件
+    if (e.detail.source != 'touch') {
       return;
     }
     const _this = this;
@@ -71,15 +86,19 @@ Page({
       _this.next();
     }
   },
-  _renderSwiper: function (begin, end) {
+  _renderSwiper: function () {//渲染swiper item
     let items = null;
     const _this = this;
+    let begin = _this.index - 1;
+    let end = begin + 3;
+
     if (end >= -1) {
-      items = _this.testList.slice(begin);
-    } else if (begin < -_this.testList.length) {
+      items = _this.cacheItems.slice(begin);
+
+    } else if (begin < -_this.itemCount) {
       //数据不够
     } else {
-      items = _this.testList.slice(begin, end);
+      items = _this.cacheItems.slice(begin, end);
     }
 
     if (items) {
