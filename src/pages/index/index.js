@@ -12,25 +12,24 @@ Page({
   itemCount: 0,
   onLoad: function (option) {
     const _this = this;
-    for (let i = 0; i < 10; i++) {
-      let tempDate = new Date(new Date().setDate(i - 19));
-      _this.cacheItems.push({
-        id: tempDate.toLocaleDateString(),
-        era: '丙申猴年 辛丑月 庚子日',
-        lunar: '腊月十六',
-        week: `星期${tempDate.getDay()}`,
-        year: tempDate.getFullYear(),
-        mouth: tempDate.getMonth() + 1,
-        day: tempDate.getDate(),
-        act: '混吃等死',
-        taboo: i % 2 == 0,//宜忌
-        motto: tempDate.toLocaleDateString()
-      })
-    }
-    _this.itemCount = _this.cacheItems.length;
+    wx.showLoading({
+      title: '一大波毒鸡汤正在靠近',
+    });
+    wx.request({
+      url: 'https://duron.xiangduhui.com/duron',
+      success:function(res){
+        if (res.data) {
+          _this.cacheItems=res.data;
+          _this.itemCount = _this.cacheItems.length;
+          _this.setData({
+            calendar: _this.cacheItems.slice(_this.index - 1)
+          })
 
-    _this.setData({
-      calendar: _this.cacheItems.slice(_this.index - 1)
+        }
+      },
+      complete:function(){
+        wx.hideLoading();
+      }
     })
   },
   onReady: function () {
