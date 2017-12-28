@@ -82,9 +82,10 @@ Page({
       return;
     }
     const _this = this;
+    console.log(e.detail.current)
     if (e.detail.current == 0) {
       _this.previous();
-    } else if (e.detail.current == 2) {
+    } else if (e.detail.current == 2||e.detail.current==1) {
       _this.next();
     }
   },
