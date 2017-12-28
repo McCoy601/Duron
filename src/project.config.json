@@ -1,16 +1,16 @@
 {
-	"description": "一大波负能量正在靠近",
+	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.4",
-	"appid": "wx501e905730b47d79",
-	"projectname": "Duron",
+	"libVersion": "1.6.6",
+	"appid": "wx5fbcbe85d2111d30",
+	"projectname": "duron",
 	"condition": {
 		"search": {
 			"current": -1,
