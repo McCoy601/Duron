@@ -39,7 +39,7 @@
       </view>
     </view>
     <view class='border-top-px1 pd-40'>
-      {{motto}}
+      <text>{{motto}}</text>
     </view>
   </view>
 </template>
