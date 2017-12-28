@@ -17,18 +17,41 @@ Page({
     });
     wx.request({
       url: 'https://duron.xiangduhui.com/duron',
-      success:function(res){
+      success: function (res) {
         if (res.data) {
-          _this.cacheItems=res.data;
+          wx.setStorageSync("CALENDAR_ITEMS", res.data);
+          _this.cacheItems = res.data;
           _this.itemCount = _this.cacheItems.length;
-          _this.index=_this.cacheItems.length-1;
+          _this.index = _this.cacheItems.length - 1;
           _this.setData({
             calendar: _this.cacheItems.slice(_this.index - 1)
           })
-
         }
       },
-      complete:function(){
+      fail: function (err) {
+        let _items = wx.getStorageSync("CALENDAR_ITEMS");
+        _items = _items || [];
+       _items= _items.concat([{
+          "id": _now+"",
+          "era": "网络异常，请稍后重试",
+          "lunar": "春风吹了不一定能生",
+          "week": "星期八",
+          "year": new Date().getFullYear(),
+          "mouth": 2,
+          "day": 31,
+          "act": "等待",
+          "taboo": false,
+          "motto": "服务器中毒身亡"
+        }]);
+
+        _this.cacheItems = _items;
+        _this.itemCount = _this.cacheItems.length;
+        _this.index = _this.cacheItems.length - 1;
+        _this.setData({
+          calendar: _this.cacheItems.slice(_this.index - 1)
+        })
+      },
+      complete: function () {
         wx.hideLoading();
       }
     })
@@ -41,8 +64,8 @@ Page({
   },
   next: function () {//下一天
     const _this = this;
-    
-    if (_this.index >= _this.itemCount-1) {
+
+    if (_this.index >= _this.itemCount - 1) {
       wx.showToast({
         title: '未来,已来'
       });
@@ -53,8 +76,8 @@ Page({
     _this.index += 1;
 
     let _data = {
-      current:_this.index==1?1:2,
-      canPrevious: _this.index >0,
+      current: _this.index == 1 ? 1 : 2,
+      canPrevious: _this.index > 0,
       canNext: _this.index < _this.itemCount - 1
     }
 
@@ -73,9 +96,9 @@ Page({
 
     _this.index -= 1;
     let _data = {
-      current:0,
+      current: 0,
       canPrevious: _this.index > 0,
-      canNext: _this.index < _this.itemCount-1
+      canNext: _this.index < _this.itemCount - 1
     };
     _this.setData(_data);//swiper前滑
     _this._renderSwiper();
@@ -87,7 +110,7 @@ Page({
     const _this = this;
     if (e.detail.current == 0) {
       _this.previous();
-    } else if (e.detail.current == 2||e.detail.current==1) {
+    } else if (e.detail.current == 2 || e.detail.current == 1) {
       _this.next();
     }
   },
