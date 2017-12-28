@@ -7,7 +7,7 @@ Page({
     canNext: false,
     canPrevious: true
   },
-  index: -1,
+  index: 0,
   cacheItems: [],
   itemCount: 0,
   onLoad: function (option) {
@@ -21,6 +21,7 @@ Page({
         if (res.data) {
           _this.cacheItems=res.data;
           _this.itemCount = _this.cacheItems.length;
+          _this.index=_this.cacheItems.length-1;
           _this.setData({
             calendar: _this.cacheItems.slice(_this.index - 1)
           })
@@ -40,8 +41,9 @@ Page({
   },
   next: function () {//下一天
     const _this = this;
-
-    if (_this.index >= -1) {
+    console.log(_this)
+    
+    if (_this.index >= _this.itemCount-1) {
       wx.showToast({
         title: '未来,已来'
       });
@@ -49,29 +51,30 @@ Page({
       return;
     }
 
+    _this.index += 1;
+
     let _data = {
-      current: _this.index == -_this.itemCount ? 1 : 2,
-      canPrevious: _this.index >= -_this.itemCount,
-      canNext: _this.index < -2
+      canPrevious: _this.index >0,
+      canNext: _this.index < _this.itemCount - 1
     }
 
     _this.setData(_data);
 
-    _this.index += 1;
     _this._renderSwiper();
   },
   previous: function () {//前一天
     const _this = this;
-    let _data = {
-      current: 0,
-      canPrevious: _this.index > -_this.itemCount,
-      canNext: _this.index <= -1
-    };
-    _this.setData(_data);//swiper前滑
-    if (_this.index <= -_this.itemCount) {
+    if (_this.index <= 0) {
+
       return;
     }
+
     _this.index -= 1;
+    let _data = {
+      canPrevious: _this.index > 0,
+      canNext: _this.index < _this.itemCount-1
+    };
+    _this.setData(_data);//swiper前滑
     _this._renderSwiper();
   },
   onSwiperChange: function (e) {//swiper change事件
@@ -91,10 +94,10 @@ Page({
     let begin = _this.index - 1;
     let end = begin + 3;
 
-    if (end >= -1) {
+    if (end >= _this.itemCount) {
       items = _this.cacheItems.slice(begin);
 
-    } else if (begin < -_this.itemCount) {
+    } else if (begin < 0) {
       //数据不够
     } else {
       items = _this.cacheItems.slice(begin, end);
