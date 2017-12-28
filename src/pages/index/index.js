@@ -41,7 +41,6 @@ Page({
   },
   next: function () {//下一天
     const _this = this;
-    console.log(_this)
     
     if (_this.index >= _this.itemCount-1) {
       wx.showToast({
@@ -54,6 +53,7 @@ Page({
     _this.index += 1;
 
     let _data = {
+      current:_this.index==1?1:2,
       canPrevious: _this.index >0,
       canNext: _this.index < _this.itemCount - 1
     }
@@ -71,6 +71,7 @@ Page({
 
     _this.index -= 1;
     let _data = {
+      current:0,
       canPrevious: _this.index > 0,
       canNext: _this.index < _this.itemCount-1
     };
@@ -82,7 +83,6 @@ Page({
       return;
     }
     const _this = this;
-    console.log(e.detail.current)
     if (e.detail.current == 0) {
       _this.previous();
     } else if (e.detail.current == 2||e.detail.current==1) {
