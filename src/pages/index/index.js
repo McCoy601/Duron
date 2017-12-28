@@ -65,7 +65,9 @@ Page({
   previous: function () {//前一天
     const _this = this;
     if (_this.index <= 0) {
-
+      wx.showToast({
+        title: '滚滚长江东逝水'
+      });
       return;
     }
 
