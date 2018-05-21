@@ -1,0 +1,11 @@
+[Unit]
+Description=毒小历服务端
+After=syslog.target
+
+[Service]
+User=www
+ExecStart=/usr/local/duron/duron.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

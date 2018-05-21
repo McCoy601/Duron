@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .grid {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .grid .row {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+        }
+
+        .cell {
+            flex: 1;
+            margin-bottom: 0.5em;
+        }
+
+        .c3 {
+            flex: 3
+        }
+
+        .cell input,
+        .cell textarea {
+            outline: none;
+            border: 0;
+            height: 100%;
+            width: 100%;
+            border-bottom: 1px solid gray;
+        }
+
+        .cell input:focus,
+        .cell textarea:focus {
+            border-bottom: 1px solid #62b900;
+        }
+
+        .label {
+            text-align: center;
+        }
+
+        .button {
+            border: 0;
+            background: #62b900;
+            color: #fff;
+            padding: 0.5em;
+            border-radius: 0.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="border-bottom: 1px solid gray;">日历项-编辑页</h1>
+    <form action="/duron" method="post">
+        <div class="grid">
+            <div class="row">
+                <div class="cell label">
+                    年
+                </div>
+                <div class="cell c3">
+                    <input type="number" name="year" id="year" min="2017">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    月
+                </div>
+                <div class="cell c3">
+                    <input type="number" name="mouth" id="mouth" min="1" max="12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    日
+                </div>
+                <div class="cell c3">
+                    <input type="number" name="day" id="day" min="1" max="31">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    <label for="taboo">忌/宜</label>
+                </div>
+                <div class="cell">
+                    <select name="taboo" id="taboo">
+                        <option value="true">忌</option>
+                        <option value="false">宜</option>
+                    </select>
+                </div>
+                <div class="cell c3">
+                    <input type="text" name="act" id="act">
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell label">
+                    毒鸡汤
+                </div>
+                <div class="cell c3">
+                    <textarea rows="5" name="motto"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    <input class="button" type="submit" value="提交">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

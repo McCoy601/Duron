@@ -1,6 +1,0 @@
-
-@import "_reset.wxss";
-@import "_icon.wxss";
-@import "_base.wxss";
-
-@import "_flex.wxss";
